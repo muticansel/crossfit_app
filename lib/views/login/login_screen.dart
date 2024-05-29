@@ -16,11 +16,15 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Stack(fit: StackFit.expand, children: <Widget>[
       Opacity(
-        opacity: 0.6,
+        opacity: 0.5,
         child: Image.asset(
           'assets/login_background.jpg',
           fit: BoxFit.cover,
         ),
+      ),
+      Container(
+        color: Colors.black.withOpacity(
+            0.6), // Arka plan resminin üstüne daha az opak yarı saydam bir katman ekler
       ),
       Padding(
         padding: const EdgeInsets.all(16.0),
@@ -31,7 +35,6 @@ class _LoginScreenState extends State<LoginScreen> {
               keyboardType: TextInputType.phone,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
-                labelText: 'Telefon Numarası',
                 hintText: 'Telefon Numarası',
               ),
             ),
@@ -40,7 +43,6 @@ class _LoginScreenState extends State<LoginScreen> {
               obscureText: true,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
-                labelText: 'Şifre',
                 hintText: 'Şifre',
               ),
             ),
@@ -58,14 +60,20 @@ class _LoginScreenState extends State<LoginScreen> {
                         });
                       },
                     ),
-                    const Text('Beni Hatırla'),
+                    const Text(
+                      'Beni Hatırla',
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ],
                 ),
                 TextButton(
                   onPressed: () {
                     // Şifremi Unuttum butonuna basılınca yapılacak işlemler
                   },
-                  child: const Text('Şifremi Unuttum'),
+                  child: const Text(
+                    'Şifremi Unuttum',
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
               ],
             ),

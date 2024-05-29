@@ -14,13 +14,17 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
+        textTheme: const TextTheme(
+          bodyLarge: TextStyle(color: Colors.white),
+          labelLarge: TextStyle(color: Colors.white),
+        ),
+        inputDecorationTheme: const InputDecorationTheme(
+          hintStyle: TextStyle(color: Colors.white), // Hint metin rengi beyaz
+        ),
         useMaterial3: true,
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Crossfit Demo App'),
-        ),
+      home: const Scaffold(
         body: LoginScreen(),
       ),
     );
