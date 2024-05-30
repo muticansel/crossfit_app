@@ -1,16 +1,8 @@
+import 'package:crossfit_app/src/widgets/checkbox.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
-
-  @override
-  // ignore: library_private_types_in_public_api
-  _LoginScreenState createState() => _LoginScreenState();
-}
-
-class _LoginScreenState extends State<LoginScreen> {
-  bool _rememberMe = false;
 
   @override
   Widget build(BuildContext context) {
@@ -50,17 +42,12 @@ class _LoginScreenState extends State<LoginScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Row(
+                const Row(
                   children: <Widget>[
-                    Checkbox(
-                      value: _rememberMe,
-                      onChanged: (bool? value) {
-                        setState(() {
-                          _rememberMe = value ?? false;
-                        });
-                      },
-                    ),
-                    const Text(
+                    SizedBox(width: 4),
+                    CustomCheckbox(),
+                    SizedBox(width: 8),
+                    Text(
                       'Beni Hatırla',
                       style: TextStyle(color: Colors.white),
                     ),
