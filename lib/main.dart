@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:crossfit_app/views/login/login_screen.dart';
+import 'package:crossfit_app/src/views/login/login_screen.dart';
 
 void main() {
   runApp(const MyApp());
