@@ -1,5 +1,6 @@
-import 'package:crossfit_app/src/widgets/checkbox.dart';
 import 'package:flutter/material.dart';
+import 'package:crossfit_app/src/views/home/home_screen.dart';
+import 'package:crossfit_app/src/widgets/checkbox.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -67,7 +68,10 @@ class LoginScreen extends StatelessWidget {
             const SizedBox(height: 24),
             ElevatedButton(
               onPressed: () {
-                // Giriş yap butonuna basılınca yapılacak işlemler
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Home()),
+                );
               },
               child: const Text('Giriş Yap'),
             ),
