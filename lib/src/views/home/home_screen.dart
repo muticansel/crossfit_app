@@ -20,7 +20,11 @@ class Home extends StatelessWidget {
     ];
 
     return Scaffold(
+      extendBodyBehindAppBar:
+          true, // App Bar'ın arka plan resminin üstüne çıkmasını sağlar
       appBar: AppBar(
+        backgroundColor: Colors.transparent, // Şeffaf arka plan
+        elevation: 0, // Gölge yok
         automaticallyImplyLeading: false,
         actions: [
           TextButton(
@@ -33,39 +37,60 @@ class Home extends StatelessWidget {
             },
             child: const Text(
               'Çıkış Yap',
+              style: TextStyle(color: Colors.white),
             ),
           ),
         ],
       ),
-      body: Center(
-        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Text(
-            'Merhaba $userName',
-            style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+      body: Stack(
+        fit: StackFit.expand,
+        children: <Widget>[
+          Opacity(
+            opacity: 0.5,
+            child: Image.asset(
+              'assets/home_bg.jpg',
+              fit: BoxFit.cover,
+            ),
           ),
-          const SizedBox(height: 24),
-          ...homeButtonLabels.map((buttonLabel) {
-            return Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0),
-              child: SizedBox(
-                width: MediaQuery.of(context).size.width *
-                    0.95, // Ekran genişliğinin %95'i
-                child: ElevatedButton(
-                  onPressed: () {
-                    // Butona basıldığında yapılacak işlemler
-                  },
-                  style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                      borderRadius:
-                          BorderRadius.circular(8.0), // Yuvarlak köşeler
+          Container(
+            color: Colors.black.withOpacity(
+                0.6), // Arka plan resminin üstüne daha az opak yarı saydam bir katman ekler
+          ),
+          Center(
+            child:
+                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+              Text(
+                'Merhaba $userName',
+                style: const TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white),
+              ),
+              const SizedBox(height: 24),
+              ...homeButtonLabels.map((buttonLabel) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width *
+                        0.95, // Ekran genişliğinin %95'i
+                    child: ElevatedButton(
+                      onPressed: () {
+                        // Butona basıldığında yapılacak işlemler
+                      },
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.circular(8.0), // Yuvarlak köşeler
+                        ),
+                      ),
+                      child: Text(buttonLabel),
                     ),
                   ),
-                  child: Text(buttonLabel),
-                ),
-              ),
-            );
-          }),
-        ]),
+                );
+              }),
+            ]),
+          ),
+        ],
       ),
     );
   }
