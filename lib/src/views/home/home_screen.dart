@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:crossfit_app/src/views/my_account/my_account_screen.dart';
 import 'package:crossfit_app/src/views/login/login_screen.dart';
 
 class Home extends StatelessWidget {
@@ -75,7 +76,13 @@ class Home extends StatelessWidget {
                         0.95, // Ekran genişliğinin %95'i
                     child: ElevatedButton(
                       onPressed: () {
-                        // Butona basıldığında yapılacak işlemler
+                        if (buttonLabel == 'Hesabım') {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const MyAccount()),
+                          );
+                        }
                       },
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
