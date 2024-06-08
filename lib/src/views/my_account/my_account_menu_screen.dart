@@ -1,3 +1,4 @@
+import 'package:crossfit_app/src/views/my_account/change_password_screen.dart';
 import 'package:crossfit_app/src/views/my_account/my_transactions_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -45,7 +46,8 @@ class MyAccountMenu extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: accountButtonLabels.map((buttonLabel) {
-                final isDisabled = buttonLabel != 'Ödemeler';
+                final isDisabled = buttonLabel != 'Ödemeler' &&
+                    buttonLabel != 'Şifremi Değiştir';
 
                 return Padding(
                   padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -58,6 +60,14 @@ class MyAccountMenu extends StatelessWidget {
                             context,
                             MaterialPageRoute(
                                 builder: (context) => const MyTransactions()),
+                          );
+                        }
+                        if (buttonLabel == 'Şifremi Değiştir') {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const ChangePasswordScreen()),
                           );
                         }
                       },
