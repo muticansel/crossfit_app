@@ -64,10 +64,19 @@ class TransactionsTable extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         child: DataTable(
           columns: const [
-            DataColumn(label: Text('Tarih')),
-            DataColumn(label: Text('Açıklama')),
-            DataColumn(label: Text('Borç')),
-            DataColumn(label: Text('Alacak')),
+            DataColumn(
+              label:
+                  Text('Tarih', style: TextStyle(fontWeight: FontWeight.bold)),
+            ),
+            DataColumn(
+                label: Text('Açıklama',
+                    style: TextStyle(fontWeight: FontWeight.bold))),
+            DataColumn(
+                label: Text('Borç',
+                    style: TextStyle(fontWeight: FontWeight.bold))),
+            DataColumn(
+                label: Text('Alacak',
+                    style: TextStyle(fontWeight: FontWeight.bold))),
           ],
           rows: transactions.map((transaction) {
             return DataRow(cells: [
