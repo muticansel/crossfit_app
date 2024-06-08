@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:crossfit_app/src/views/my_account/my_account_screen.dart';
+import 'package:crossfit_app/src/views/my_account/my_account_menu_screen.dart';
 import 'package:crossfit_app/src/views/login/login_screen.dart';
 
 class Home extends StatelessWidget {
@@ -69,6 +69,8 @@ class Home extends StatelessWidget {
               ),
               const SizedBox(height: 24),
               ...homeButtonLabels.map((buttonLabel) {
+                final isDisabled = buttonLabel != 'Hesabım';
+
                 return Padding(
                   padding: const EdgeInsets.symmetric(vertical: 8.0),
                   child: SizedBox(
@@ -80,7 +82,7 @@ class Home extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const MyAccount()),
+                                builder: (context) => const MyAccountMenu()),
                           );
                         }
                       },
@@ -89,6 +91,15 @@ class Home extends StatelessWidget {
                           borderRadius:
                               BorderRadius.circular(8.0), // Yuvarlak köşeler
                         ),
+                        backgroundColor: isDisabled
+                            ? Colors.grey
+                            : null, // Devre dışı butonlar için gri arka plan
+                        foregroundColor: isDisabled
+                            ? Colors.white
+                            : null, // Devre dışı butonlar için beyaz metin
+                        textStyle: isDisabled
+                            ? const TextStyle(color: Colors.white)
+                            : null,
                       ),
                       child: Text(buttonLabel),
                     ),
