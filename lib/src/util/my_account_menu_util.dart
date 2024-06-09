@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:crossfit_app/src/views/my_account/profile_screen.dart';
 import 'package:crossfit_app/src/views/my_account/my_account_menu_screen.dart';
 import 'package:crossfit_app/src/views/my_account/change_password_screen.dart';
 import 'package:crossfit_app/src/views/my_account/my_transactions_screen.dart';
@@ -24,7 +25,12 @@ class NavigationtUtils {
           MaterialPageRoute(builder: (context) => const ChangePasswordScreen()),
         );
         break;
-      // Diğer durumlar için gerektiğinde ekleyebilirsiniz
+      case 'Profil Bilgilerim':
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const ProfileScreen()),
+        );
+        break;
       default:
         break;
     }

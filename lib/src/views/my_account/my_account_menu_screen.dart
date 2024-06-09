@@ -46,7 +46,8 @@ class MyAccountMenu extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: accountButtonLabels.map((buttonLabel) {
                 final isDisabled = buttonLabel != 'Ödemeler' &&
-                    buttonLabel != 'Şifremi Değiştir';
+                    buttonLabel != 'Şifremi Değiştir' &&
+                    buttonLabel != 'Profil Bilgilerim';
 
                 return Padding(
                   padding: const EdgeInsets.symmetric(vertical: 8.0),
