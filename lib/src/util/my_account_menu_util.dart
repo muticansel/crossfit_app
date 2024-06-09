@@ -3,6 +3,7 @@ import 'package:crossfit_app/src/views/my_account/profile_screen.dart';
 import 'package:crossfit_app/src/views/my_account/my_account_menu_screen.dart';
 import 'package:crossfit_app/src/views/my_account/change_password_screen.dart';
 import 'package:crossfit_app/src/views/my_account/my_transactions_screen.dart';
+import 'package:crossfit_app/src/views/my_account/membership_screen.dart';
 
 class NavigationtUtils {
   static void navigateTo(BuildContext context, String buttonLabel) {
@@ -29,6 +30,12 @@ class NavigationtUtils {
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => const ProfileScreen()),
+        );
+        break;
+      case 'Üyeliklerim':
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => MembershipScreen()),
         );
         break;
       default:
