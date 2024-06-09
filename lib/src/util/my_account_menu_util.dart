@@ -4,6 +4,7 @@ import 'package:crossfit_app/src/views/my_account/my_account_menu_screen.dart';
 import 'package:crossfit_app/src/views/my_account/change_password_screen.dart';
 import 'package:crossfit_app/src/views/my_account/my_transactions_screen.dart';
 import 'package:crossfit_app/src/views/my_account/membership_screen.dart';
+import 'package:crossfit_app/src/views/my_account/reservations_screen.dart';
 
 class NavigationtUtils {
   static void navigateTo(BuildContext context, String buttonLabel) {
@@ -35,7 +36,13 @@ class NavigationtUtils {
       case 'Üyeliklerim':
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => MembershipScreen()),
+          MaterialPageRoute(builder: (context) => const MembershipScreen()),
+        );
+        break;
+      case 'Rezervasyonlarım':
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const ReservationsScreen()),
         );
         break;
       default:

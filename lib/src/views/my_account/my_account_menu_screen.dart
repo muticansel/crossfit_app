@@ -48,7 +48,8 @@ class MyAccountMenu extends StatelessWidget {
                 final isDisabled = buttonLabel != 'Ödemeler' &&
                     buttonLabel != 'Şifremi Değiştir' &&
                     buttonLabel != 'Profil Bilgilerim' &&
-                    buttonLabel != "Üyeliklerim";
+                    buttonLabel != "Üyeliklerim" &&
+                    buttonLabel != "Rezervasyonlarım";
 
                 return Padding(
                   padding: const EdgeInsets.symmetric(vertical: 8.0),
